@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Name - Space Journey</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            background: #0a0a0f;
+            color: white;
+            overflow-x: hidden;
+        }
+
+        .space-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100vh;
+            background: linear-gradient(180deg, #0a0a0f 0%, #1a1a2e 30%, #16213e 60%, #0f3460 100%);
+            z-index: -1;
+        }
+
+        .stars {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 200%;
+            background-image: 
+                radial-gradient(2px 2px at 20px 30px, white, transparent),
+                radial-gradient(2px 2px at 40px 70px, white, transparent),
+                radial-gradient(1px 1px at 90px 40px, white, transparent),
+                radial-gradient(1px 1px at 130px 80px, white, transparent),
+                radial-gradient(2px 2px at 160px 30px, white, transparent);
+            background-repeat: repeat;
+            background-size: 200px 100px;
+            animation: twinkle 4s infinite;
+            will-change: transform;
+        }
+
+        .stars:nth-child(2) {
+            animation-delay: 1s;
+            background-size: 300px 120px;
+            opacity: 0.7;
+        }
+
+        .stars:nth-child(3) {
+            animation-delay: 2s;
+            background-size: 250px 80px;
+            opacity: 0.5;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.8; }
+            50% { opacity: 1; }
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            padding: 20px 40px;
+            background: rgba(10, 10, 15, 0.8);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            z-index: 1000;
+            transition: all 0.3s ease;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: #64ffda;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo::before {
+            content: "🚀";
+            font-size: 1.2em;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: rgba(255, 255, 255, 0.8);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 8px 16px;
+            border-radius: 20px;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: #64ffda;
+            background: rgba(100, 255, 218, 0.1);
+        }
+
+        .main-container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 20px;
+            background: radial-gradient(circle at 30% 80%, rgba(34, 139, 34, 0.3) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 60%, rgba(30, 144, 255, 0.2) 0%, transparent 40%);
+        }
+
+        .hero-content {
+            max-width: 800px;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .hero h1 {
+            font-size: clamp(3rem, 8vw, 5rem);
+            font-weight: 900;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #64ffda, #00bfa5);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.2rem, 3vw, 1.6rem);
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 40px;
+            line-height: 1.6;
+        }
+
+        .mission-badge {
+            display: inline-block;
+            background: rgba(100, 255, 218, 0.1);
+            border: 1px solid #64ffda;
+            padding: 8px 20px;
+            border-radius: 25px;
+            color: #64ffda;
+            font-weight: 600;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            animation: bounce 2s infinite;
+        }
+
+        .scroll-indicator span {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.9rem;
+        }
+
+        .scroll-arrow {
+            width: 20px;
+            height: 20px;
+            border-right: 2px solid #64ffda;
+            border-bottom: 2px solid #64ffda;
+            transform: rotate(45deg);
+        }
+
+        .mission {
+            min-height: 100vh;
+            padding: 100px 20px;
+            position: relative;
+        }
+
+        .mission-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .mission:nth-child(even) .mission-content {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .mission:nth-child(odd) .mission-content {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .mission-text h2 {
+            font-size: clamp(2rem, 5vw, 3rem);
+            font-weight: 800;
+            margin-bottom: 20px;
+            color: #64ffda;
+        }
+
+        .mission-text p {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 20px;
+        }
+
+        .mission-visual {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 400px;
+        }
+
+        .planet {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            position: relative;
+            animation: rotate 20s linear infinite;
+        }
+
+        .earth {
+            background: radial-gradient(circle at 30% 30%, #4a90e2, #2171b5, #1a5c8a);
+            box-shadow: 
+                inset -20px -20px 50px rgba(0, 0, 0, 0.3),
+                0 0 80px rgba(74, 144, 226, 0.4);
+        }
+
+        .mars {
+            background: radial-gradient(circle at 30% 30%, #cd5c5c, #a0522d, #8b4513);
+            box-shadow: 
+                inset -20px -20px 50px rgba(0, 0, 0, 0.3),
+                0 0 80px rgba(205, 92, 92, 0.4);
+        }
+
+        .jupiter {
+            background: radial-gradient(circle at 30% 30%, #ffa500, #ff8c00, #ff7f50);
+            box-shadow: 
+                inset -20px -20px 50px rgba(0, 0, 0, 0.3),
+                0 0 80px rgba(255, 165, 0, 0.4);
+        }
+
+        .tech-orbit {
+            position: absolute;
+            border: 1px solid rgba(100, 255, 218, 0.3);
+            border-radius: 50%;
+            animation: orbit 15s linear infinite;
+        }
+
+        .orbit-1 {
+            width: 350px;
+            height: 350px;
+            animation-duration: 12s;
+        }
+
+        .orbit-2 {
+            width: 400px;
+            height: 400px;
+            animation-duration: 18s;
+            animation-direction: reverse;
+        }
+
+        .satellite {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            background: rgba(100, 255, 218, 0.2);
+            border: 2px solid #64ffda;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            top: -20px;
+            left: -20px;
+        }
+
+        .journey-timeline {
+            position: fixed;
+            right: 30px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 100;
+        }
+
+        .timeline-dot {
+            width: 12px;
+            height: 12px;
+            border: 2px solid rgba(100, 255, 218, 0.5);
+            border-radius: 50%;
+            margin: 20px 0;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .timeline-dot.active {
+            background: #64ffda;
+            box-shadow: 0 0 20px #64ffda;
+        }
+
+        .contact {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(180deg, #0a0a0f 0%, #000 100%);
+            position: relative;
+        }
+
+        .contact-content {
+            max-width: 600px;
+            padding: 0 20px;
+        }
+
+        .contact h2 {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 800;
+            margin-bottom: 30px;
+            background: linear-gradient(135deg, #64ffda, #00bfa5, #4a90e2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+
+        .contact-link {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 15px 25px;
+            background: rgba(100, 255, 218, 0.1);
+            border: 1px solid #64ffda;
+            border-radius: 25px;
+            color: #64ffda;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .contact-link:hover {
+            background: rgba(100, 255, 218, 0.2);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(100, 255, 218, 0.3);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        @keyframes orbit {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+            40% { transform: translateX(-50%) translateY(-10px); }
+            60% { transform: translateX(-50%) translateY(-5px); }
+        }
+
+        @media (max-width: 768px) {
+            .mission-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+                text-align: center;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .journey-timeline {
+                display: none;
+            }
+
+            .contact-links {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        .parallax-element {
+            transition: transform 0.1s ease-out;
+        }
+    </style>
+</head>
+<body>
+    <div class="space-container">
+        <div class="stars"></div>
+        <div class="stars"></div>
+        <div class="stars"></div>
+    </div>
+
+    <nav>
+        <div class="nav-container">
+            <a href="#" class="logo">Your Name</a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="journey-timeline">
+        <div class="timeline-dot active" data-section="hero"></div>
+        <div class="timeline-dot" data-section="about"></div>
+        <div class="timeline-dot" data-section="projects"></div>
+        <div class="timeline-dot" data-section="experience"></div>
+        <div class="timeline-dot" data-section="contact"></div>
+    </div>
+
+    <div class="main-container">
+        <!-- Hero Section - Earth -->
+        <section class="hero" id="home">
+            <div class="hero-content">
+                <div class="mission-badge">Mission: Personal</div>
+                <h1>Your Name</h1>
+                <p class="hero-subtitle">
+                    Embarking on a digital journey through the cosmos of code, creativity, and innovation. 
+                    Join me as I explore new frontiers in technology and push the boundaries of what's possible.
+                </p>
+                <div class="scroll-indicator">
+                    <span>Begin Journey</span>
+                    <div class="scroll-arrow"></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="mission" id="about">
+            <div class="mission-content">
+                <div class="mission-text">
+                    <h2>About Mission</h2>
+                    <p>
+                        From Earth to Mars, my journey in technology began with curiosity and evolved into passion. 
+                        I specialize in creating digital experiences that bridge the gap between imagination and reality.
+                    </p>
+                    <p>
+                        With expertise in full-stack development, I've navigated through various programming languages 
+                        and frameworks, always seeking to explore new technological territories.
+                    </p>
+                </div>
+                <div class="mission-visual">
+                    <div class="tech-orbit orbit-1">
+                        <div class="satellite">💻</div>
+                    </div>
+                    <div class="tech-orbit orbit-2">
+                        <div class="satellite">⚡</div>
+                    </div>
+                    <div class="planet mars"></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="mission" id="projects">
+            <div class="mission-content">
+                <div class="mission-visual">
+                    <div class="tech-orbit orbit-1">
+                        <div class="satellite">🚀</div>
+                    </div>
+                    <div class="tech-orbit orbit-2">
+                        <div class="satellite">🌟</div>
+                    </div>
+                    <div class="planet jupiter"></div>
+                </div>
+                <div class="mission-text">
+                    <h2>Projects Galaxy</h2>
+                    <p>
+                        Each project is a planet in my development galaxy. From mobile applications that reach 
+                        the stars to web platforms that span solar systems, I create digital worlds that matter.
+                    </p>
+                    <p>
+                        Featured missions include AI-powered applications, responsive web platforms, and 
+                        innovative mobile experiences that push the boundaries of user interaction.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section class="mission" id="experience">
+            <div class="mission-content">
+                <div class="mission-text">
+                    <h2>Experience Rings</h2>
+                    <p>
+                        Like Saturn's rings, my professional experience encompasses multiple layers of expertise. 
+                        From startup ventures to enterprise solutions, each role has added another ring of knowledge.
+                    </p>
+                    <p>
+                        I've collaborated with cross-functional teams, led development initiatives, and mentored 
+                        fellow space explorers on their coding journeys through the vast universe of technology.
+                    </p>
+                </div>
+                <div class="mission-visual">
+                    <div class="tech-orbit orbit-1">
+                        <div class="satellite">🎯</div>
+                    </div>
+                    <div class="tech-orbit orbit-2">
+                        <div class="satellite">🏆</div>
+                    </div>
+                    <div class="planet earth"></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="contact" id="contact">
+            <div class="contact-content">
+                <h2>Deep Space Contact</h2>
+                <p>Ready to embark on a collaborative mission? Let's connect across the digital cosmos and create something extraordinary together.</p>
+                <div class="contact-links">
+                    <a href="mailto:your.email@gmail.com" class="contact-link">
+                        <span>📧</span>
+                        <span>Email</span>
+                    </a>
+                    <a href="https://linkedin.com/in/yourprofile" class="contact-link">
+                        <span>💼</span>
+                        <span>LinkedIn</span>
+                    </a>
+                    <a href="https://github.com/yourusername" class="contact-link">
+                        <span>🐙</span>
+                        <span>GitHub</span>
+                    </a>
+                    <a href="https://twitter.com/yourusername" class="contact-link">
+                        <span>🐦</span>
+                        <span>Twitter</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const rate = scrolled * -0.5;
+            
+            const stars = document.querySelectorAll('.stars');
+            stars.forEach((star, index) => {
+                star.style.transform = `translateY(${rate * (index + 1) * 0.3}px)`;
+            });
+
+            const nav = document.querySelector('nav');
+            if (scrolled > 100) {
+                nav.style.background = 'rgba(10, 10, 15, 0.95)';
+            } else {
+                nav.style.background = 'rgba(10, 10, 15, 0.8)';
+            }
+
+            const sections = document.querySelectorAll('section');
+            const dots = document.querySelectorAll('.timeline-dot');
+            
+            sections.forEach((section, index) => {
+                const rect = section.getBoundingClientRect();
+                if (rect.top <= window.innerHeight / 2 && rect.bottom >= window.innerHeight / 2) {
+                    dots.forEach(dot => dot.classList.remove('active'));
+                    if (dots[index]) {
+                        dots[index].classList.add('active');
+                    }
+                }
+            });
+
+            const elements = document.querySelectorAll('.mission-content');
+            elements.forEach(element => {
+                const rect = element.getBoundingClientRect();
+                if (rect.top < window.innerHeight && rect.bottom > 0) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        });
+
+        document.querySelectorAll('.timeline-dot').forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                const sections = document.querySelectorAll('section');
+                if (sections[index]) {
+                    sections[index].scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const elements = document.querySelectorAll('.mission-content');
+            elements.forEach(element => {
+                element.style.opacity = '0';
+                element.style.transform = 'translateY(50px)';
+                element.style.transition = 'all 0.6s ease-out';
+            });
+        });
+    </script>
+</body>
+</html>
