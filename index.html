@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>A Journey Through Outer white-space</title>
+    <title>Journey Through Our Solar System</title>
     <style>
         * {
             margin: 0;
@@ -145,7 +145,7 @@
             font-size: clamp(3rem, 8vw, 5rem);
             font-weight: 900;
             margin-bottom: 20px;
-            background: linear-gradient(135deg, hsl(51, 70%, 87%), #dbc7ae);
+            background: linear-gradient(135deg, #ffd700, #ff8c00);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -322,7 +322,7 @@
         }
 
         .jupiter {
-            background: radial-gradient(circle at 30% 30%, #d3c8b4, #ff8c00, #b2a57c);
+            background: radial-gradient(circle at 30% 30%, #ffa500, #ff8c00, #ff7f50);
             box-shadow: 
                 inset -20px -20px 50px rgba(0, 0, 0, 0.3),
                 0 0 80px rgba(255, 165, 0, 0.4);
@@ -556,7 +556,7 @@
 
     <nav>
         <div class="nav-container">
-            <a href="#" class="logo">Exploring Outer Space</a>
+            <a href="#" class="logo">The Solar System</a>
             <ul class="nav-links">
                 <li><a href="#home">Launch</a></li>
                 <li><a href="#sun">Sun</a></li>
@@ -573,7 +573,7 @@
         <div class="timeline-dot" data-section="mercury" data-planet="Mercury"></div>
         <div class="timeline-dot" data-section="venus" data-planet="Venus"></div>
         <div class="timeline-dot" data-section="earth" data-planet="Earth"></div>
-        <div class="timelin se-dot" data-section="mars" data-planet="Mars"></div>
+        <div class="timeline-dot" data-section="mars" data-planet="Mars"></div>
         <div class="timeline-dot" data-section="jupiter" data-planet="Jupiter"></div>
         <div class="timeline-dot" data-section="saturn" data-planet="Saturn"></div>
         <div class="timeline-dot" data-section="uranus" data-planet="Uranus"></div>
@@ -584,13 +584,16 @@
     <div class="main-container">
         <section class="hero" id="home">
             <div class="hero-content">
-                <div class="mission-badge">Mission Outer Space</div>
                 <h1>A Journey Through Outer Space</h1>
                 <p class="hero-subtitle">
-                    TEST TEST Embark on a virtual journey through outer space and explore each of the eight planets from the comfort of your home. 
+                    Embark on a virtual journey through outer space and explore each of the eight planets from the comfort of your home. 
                     Learn a bit more about each planet, their unique characteristics, and the wonders of the cosmos! 
                     Scroll down to begin your adventure!
                 </p>
+                <div class="scroll-indicator">
+                    <span>Begin Journey</span>
+                    <div class="scroll-arrow"></div>
+                </div>
             </div>
         </section>
 
@@ -599,8 +602,8 @@
                 <div class="planet-info">
                     <h2>☀️ The Sun</h2>
                     <p>
-                        Our journey begins at the very center of our solar system... the Sun. As you may already know, the Sun is a massive star 
-                        that provides light and heat to makes life on Earth possible. Without the sun, we wouldn't even be alive!
+                        Our journey begins at the center of our solar system - the Sun! This massive star 
+                        provides the light and heat that makes life on Earth possible.
                     </p>
                     <p>
                         The Sun is so large that about 1.3 million Earths could fit inside it. 
@@ -614,7 +617,7 @@
                             <span>4.6 billion years</span>
                         </div>
                         <div class="fact-item">
-                            <span>Surface Temperature:</span>
+                            <span>Temperature (Surface):</span>
                             <span>5,500°C</span>
                         </div>
                         <div class="fact-item">
@@ -632,34 +635,35 @@
                 </div>
             </div>
         </section>
+
         <section class="planet-section" id="mercury">
             <div class="planet-content">
                 <div class="planet-visual">
                     <div class="planet mercury"></div>
                 </div>
                 <div class="planet-info">
-                    <h2>Mercury</h2>
+                    <h2>☿️ Mercury</h2>
                     <p>
-                        Mercury is the smallest planet in our solar system. It is also the closest to the Sun! However, despite 
-                        being so close to the Sun, it's not the hottest planet (continue on your journey to find out which planet is!)
+                        Mercury is the smallest planet and closest to the Sun. Despite being so close to our star, 
+                        it's not the hottest planet - that honor goes to Venus!
                     </p>
                     <p>
-                        A day on Mercury/one rotation takes about 59 Earth days, but a year on Mercury/one orbit around the Sun 
-                        takes only 88 Earth days. This means that a day on Mercury is longer than a year!
+                        A day on Mercury (one rotation) takes 59 Earth days, but a year (one orbit around the Sun) 
+                        takes only 88 Earth days. This means Mercury's day is longer than its year!
                     </p>
                     <div class="planet-facts">
                         <h3>Mercury Facts</h3>
                         <div class="fact-item">
                             <span>Distance from Sun:</span>
-                            <span>~57.9 million km</span>
+                            <span>58 million km</span>
                         </div>
                         <div class="fact-item">
                             <span>Diameter:</span>
-                            <span>4,890 km</span>
+                            <span>4,879 km</span>
                         </div>
                         <div class="fact-item">
-                            <span>Age:</span>
-                            <span>4.503 billion years</span>
+                            <span>Day Length:</span>
+                            <span>59 Earth days</span>
                         </div>
                         <div class="fact-item">
                             <span>Temperature Range:</span>
@@ -669,9 +673,10 @@
                 </div>
             </div>
         </section>
-           <section class="planet-section" id="venus">
+
+        <section class="planet-section" id="venus">
             <div class="planet-content">
-                <div class="planet-info">~
+                <div class="planet-info">
                     <h2>Venus</h2>
                     <p>
                         Venus is often called Earth's "twin" because of its similar size, but it's actually 
@@ -751,7 +756,7 @@
         <section class="planet-section" id="mars">
             <div class="planet-content">
                 <div class="planet-info">
-                    <h2>♂️ Mars</h2>
+                    <h2>Mars</h2>
                     <p>
                         The Red Planet! Mars gets its reddish color from iron oxide (rust) on its surface. 
                         It has the largest volcano in the solar system - Olympus Mons!
@@ -792,7 +797,7 @@
                     <div class="planet jupiter"></div>
                 </div>
                 <div class="planet-info">
-                    <h2>♃ Jupiter</h2>
+                    <h2>Jupiter</h2>
                     <p>
                         Jupiter is the largest planet in our solar system - so big that all other planets 
                         could fit inside it! It's a gas giant with a famous Great Red Spot storm.
@@ -825,9 +830,403 @@
             </div>
         </section>
 
-        <section class="planet-section" id="saturn">
+                <section class="planet-section" id="saturn">
             <div class="planet-content">
                 <div class="planet-info">
-                    <h2>♄ Saturn</h     
+                    <h2>♄ Saturn</h2>
+                    <p>
+                        Saturn is famous for its spectacular ring system! These rings are made of billions 
+                        of ice and rock particles, some as small as grains of sand, others as large as mountains.
+                    </p>
+                    <p>
+                        Saturn is less dense than water - if you could find an ocean big enough, 
+                        Saturn would float! It's also known for its moon Titan, which has lakes of liquid methane.
+                    </p>
+                    <div class="planet-facts">
+                        <h3>Saturn Facts</h3>
+                        <div class="fact-item">
+                            <span>Distance from Sun:</span>
+                            <span>1.4 billion km</span>
+                        </div>
+                        <div class="fact-item">
+                            <span>Diameter:</span>
+                            <span>120,536 km</span>
+                        </div>
+                        <div class="fact-item">
+                            <span>Day Length:</span>
+                            <span>10.7 hours</span>
+                        </div>
+                        <div class="fact-item">
+                            <span>Known Moons:</span>
+                            <span>82+</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="planet-visual">
+                    <div class="planet saturn"></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="planet-section" id="uranus">
+            <div class="planet-content">
+                <div class="planet-visual">
+                    <div class="planet uranus"></div>
+                </div>
+                <div class="planet-info">
+                    <h2>Uranus</h2>
+                    <p>
+                        Uranus is the "sideways planet" - it rotates on its side! This ice giant 
+                        is made mostly of water, methane, and ammonia ice around a rocky core.
+                    </p>
+                    <p>
+                        It's the coldest planet in our solar system, even though Neptune is farther from the Sun. 
+                        Uranus also has faint rings and 27 known moons named after Shakespeare characters!
+                    </p>
+                    <div class="planet-facts">
+                        <h3>Uranus Facts</h3>
+                        <div class="fact-item">
+                            <span>Distance from Sun:</span>
+                            <span>2.9 billion km</span>
+                        </div>
+                        <div class="fact-item">
+                            <span>Diameter:</span>
+                            <span>51,118 km</span>
+                        </div>
+                        <div class="fact-item">
+                            <span>Day Length:</span>
+                            <span>17.2 hours</span>
+                        </div>
+                        <div class="fact-item">
+                            <span>Temperature:</span>
+                            <span>-195°C</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="planet-section" id="neptune">
+            <div class="planet-content">
+                <div class="planet-info">
+                    <h2>Neptune</h2>
+                    <p>
+                        Neptune is the farthest planet from the Sun and the windiest! Winds can reach 
+                        speeds of up to 2,100 kilometers per hour - faster than the speed of sound on Earth!
+                    </p>
+                    <p>
+                        This deep blue ice giant takes 165 Earth years to orbit the Sun once. 
+                        It was discovered through mathematical predictions rather than observation!
+                    </p>
+                    <div class="planet-facts">
+                        <h3>Neptune Facts</h3>
+                        <div class="fact-item">
+                            <span>Distance from Sun:</span>
+                            <span>4.5 billion km</span>
+                        </div>
+                        <div class="fact-item">
+                            <span>Diameter:</span>
+                            <span>49,528 km</span>
+                        </div>
+                        <div class="fact-item">
+                            <span>Day Length:</span>
+                            <span>16.1 hours</span>
+                        </div>
+                        <div class="fact-item">
+                            <span>Wind Speed:</span>
+                            <span>Up to 2,100 km/h</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="planet-visual">
+                    <div class="planet neptune"></div>
+                </div>
+            </div>
+        </section>
 
 
+        </section>2>
+                    <p>
+                        Saturn is famous for its spectacular ring system! These rings are made of billions 
+                        of ice and rock particles, some as small as grains of sand, others as large as mountains.
+                    </p>
+                    <p>
+                        Saturn is less dense than water - if you could find an ocean big enough, 
+                        Saturn would float! It's also known for its moon Titan, which has lakes of liquid methane.
+                    </p>
+                    <div class="planet-facts">
+                        <h3>Saturn Facts</h3>
+                        <div class="fact-item">
+                            <span>Distance from Sun:</span>
+                            <span>1.4 billion km</span>
+                        </div>
+                        <div class="fact-item">
+                            <span>Diameter:</span>
+                            <span>120,536 km</span>
+                        </div>
+                        <div class="fact-item">
+                            <span>Day Length:</span>
+                            <span>10.7 hours</span>
+                        </div>
+                        <div class="fact-item">
+                            <span>Known Moons:</span>
+                            <span>82+</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="planet-visual">
+                    <div class="planet saturn"></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="planet-section" id="uranus">
+            <div class="planet-content">
+                <div class="planet-visual">
+                    <div class="planet uranus"></div>
+                </div>
+                <div class="planet-info">
+                    <h2>♅ Uranus</h2>
+                    <p>
+                        Uranus is the "sideways planet" - it rotates on its side! This ice giant 
+                        is made mostly of water, methane, and ammonia ice around a rocky core.
+                    </p>
+                    <p>
+                        It's the coldest planet in our solar system, even though Neptune is farther from the Sun. 
+                        Uranus also has faint rings and 27 known moons named after Shakespeare characters!
+                    </p>
+                    <div class="planet-facts">
+                        <h3>Uranus Facts</h3>
+                        <div class="fact-item">
+                            <span>Distance from Sun:</span>
+                            <span>2.9 billion km</span>
+                        </div>
+                        <div class="fact-item">
+                            <span>Diameter:</span>
+                            <span>51,118 km</span>
+                        </div>
+                        <div class="fact-item">
+                            <span>Day Length:</span>
+                            <span>17.2 hours</span>
+                        </div>
+                        <div class="fact-item">
+                            <span>Temperature:</span>
+                            <span>-195°C</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="planet-section" id="neptune">
+            <div class="planet-content">
+                <div class="planet-info">
+                    <h2>♆ Neptune</h2>
+                    <p>
+                        Neptune is the farthest planet from the Sun and the windiest! Winds can reach 
+                        speeds of up to 2,100 kilometers per hour - faster than the speed of sound on Earth!
+                    </p>
+                    <p>
+                        This deep blue ice giant takes 165 Earth years to orbit the Sun once. 
+                        It was discovered through mathematical predictions rather than observation!
+                    </p>
+                    <div class="planet-facts">
+                        <h3>Neptune Facts</h3>
+                        <div class="fact-item">
+                            <span>Distance from Sun:</span>
+                            <span>4.5 billion km</span>
+                        </div>
+                        <div class="fact-item">
+                            <span>Diameter:</span>
+                            <span>49,528 km</span>
+                        </div>
+                        <div class="fact-item">
+                            <span>Day Length:</span>
+                            <span>16.1 hours</span>
+                        </div>
+                        <div class="fact-item">
+                            <span>Wind Speed:</span>
+                            <span>Up to 2,100 km/h</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="planet-visual">
+                    <div class="planet neptune"></div>
+                </div>
+            </div>
+        </section>
+
+        <section class="summary" id="summary">
+            <div class="summary-content">
+                <h2>🚀 Mission Complete!</h2>
+                <p>Congratulations, outer space explorer! You've successfully completed your virtual journey through our entire solar system!
+                   Hope you had fun and learned a thing or two about the cosmos!</p>
+                
+                <div class="solar-system-facts">
+                    <div class="fact-card">
+                        <h3>The Age of Our Solar System</h3>
+                        <p>Our solar system formed about 4.6 billion years ago from a collapsing cloud of gas and dust.</p>
+                    </div>
+                    <div class="fact-card">
+                        <h3>Planet Types</h3>
+                        <p>We have 4 rocky inner planets (terrestrial) and 4 gas/ice giants in the outer system.</p>
+                    </div>
+                    <div class="fact-card">
+                        <h3>Natural Satellites</h3>
+                        <p>There are over 200 known moons orbiting planets in our solar system!</p>
+                    </div>
+                    <div class="fact-card">
+                        <h3>Other Objects</h3>
+                        <p>Our solar system also contains asteroids, comets, meteoroids, and dwarf planets like Pluto.</p>
+                    </div>
+                    <div class="fact-card">
+                        <h3>Habitable Zone</h3>
+                        <p>Earth sits in the "Goldilocks Zone" - not too hot, not too cold, just right for liquid water!</p>
+                    </div>
+                    <div class="fact-card">
+                        <h3>Exploration</h3>
+                        <p>Humans have sent robotic missions to every planet and even landed on Mars, Venus, and Titan!</p>
+                    </div>
+                </div>
+                
+                <p style="margin-top: 40px; font-size: 1.2rem; color: #64ffda;">
+                    c
+                </p>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const rate = scrolled * -0.5;
+            
+            const stars = document.querySelectorAll('.stars');
+            stars.forEach((star, index) => {
+                star.style.transform = `translateY(${rate * (index + 1) * 0.3}px)`;
+            });
+
+            const nav = document.querySelector('nav');
+            if (scrolled > 100) {
+                nav.style.background = 'rgba(10, 10, 15, 0.95)';
+            } else {
+                nav.style.background = 'rgba(10, 10, 15, 0.8)';
+            }
+
+            const sections = document.querySelectorAll('section');
+            const dots = document.querySelectorAll('.timeline-dot');
+            
+            sections.forEach((section, index) => {
+                const rect = section.getBoundingClientRect();
+                if (rect.top <= window.innerHeight / 2 && rect.bottom >= window.innerHeight / 2) {
+                    dots.forEach(dot => dot.classList.remove('active'));
+                    if (dots[index]) {
+                        dots[index].classList.add('active');
+                    }
+                }
+            });
+
+            const elements = document.querySelectorAll('.planet-content, .summary-content');
+            elements.forEach(element => {
+                const rect = element.getBoundingClientRect();
+                if (rect.top < window.innerHeight && rect.bottom > 0) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        });
+
+        document.querySelectorAll('.timeline-dot').forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                const sections = document.querySelectorAll('section');
+                if (sections[index]) {
+                    sections[index].scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const elements = document.querySelectorAll('.planet-content, .summary-content');
+            elements.forEach(element => {
+                element.style.opacity = '0';
+                element.style.transform = 'translateY(50px)';
+                element.style.transition = 'all 0.8s ease-out';
+            });
+
+            const planets = document.querySelectorAll('.planet');
+            planets.forEach(planet => {
+                planet.addEventListener('mouseenter', () => {
+                    planet.style.animationPlayState = 'paused';
+                    planet.style.transform = 'scale(1.1)';
+                    planet.style.transition = 'transform 0.3s ease';
+                });
+                
+                planet.addEventListener('mouseleave', () => {
+                    planet.style.animationPlayState = 'running';
+                    planet.style.transform = 'scale(1)';
+                });
+            });
+
+            const factItems = document.querySelectorAll('.fact-item');
+            factItems.forEach(item => {
+                item.addEventListener('mouseenter', () => {
+                    item.style.backgroundColor = 'rgba(100, 255, 218, 0.15)';
+                    item.style.transform = 'translateX(5px)';
+                    item.style.transition = 'all 0.2s ease';
+                });
+                
+                item.addEventListener('mouseleave', () => {
+                    item.style.backgroundColor = 'transparent';
+                    item.style.transform = 'translateX(0)';
+                });
+            });
+        });
+
+        const observerOptions = {
+            threshold: 0.5,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const planetObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const planet = entry.target.querySelector('.planet');
+                    if (planet) {
+                        planet.style.animation = 'rotate 20s linear infinite, pulse 2s ease-in-out';
+                        
+                        setTimeout(() => {
+                            planet.style.animation = 'rotate 20s linear infinite';
+                        }, 2000);
+                    }
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.planet-section').forEach(section => {
+            planetObserver.observe(section);
+        });
+
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes pulse {
+                0%, 100% { box-shadow: 0 0 80px rgba(255, 255, 255, 0.3); }
+                50% { box-shadow: 0 0 120px rgba(255, 255, 255, 0.6); }
+            }
+        `;
+        document.head.appendChild(style);
+    </script>
+</body>
+</html>
